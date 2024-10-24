@@ -13,11 +13,13 @@ The configurations in this repository are standalone Ansible YAML files that dem
 ## Prerequisites
 Before using these configuration files, make sure you have the following:
 - **Ansible** installed on your local machine. You can install it with:
+  
   ```bash
   sudo apt update && sudo apt install ansible -y
 
 ## Usage
 - Clone the repository: Clone this repository to your local machine:
+  
   ```bash
   git clone https://github.com/hhsakaa/ansible-configuration-management
   cd ansible-configuration-management
