@@ -1,0 +1,20 @@
+- name: testing block,rescue and always
+  hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - block:
+       - name: install nginx
+         apt: name=ngix state=present
+       - debug:
+           msg: 'in block'
+ 
+      rescue:
+        - name: install nginx
+          shell: name=nginx state=present
+        - debug:
+           msg: 'in rescue'
+           
+      always:
+        - debug:
+           msg: ' in always'
