@@ -19,5 +19,5 @@ Before using these configuration files, make sure you have the following:
 ## Usage
 - Clone the repository: Clone this repository to your local machine:
   ```bash
-  https://github.com/hhsakaa/ansible-configuration-management
+  git clone https://github.com/hhsakaa/ansible-configuration-management
   cd ansible-configuration-management
