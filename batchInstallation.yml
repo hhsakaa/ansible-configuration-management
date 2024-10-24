@@ -1,0 +1,31 @@
+- name: Installing and configuring server
+  hosts: liveServer
+  become: yes
+  tasks:
+    - name: Update and upgrade apt packages
+      apt:
+        update_cache: yes
+        upgrade: yes
+
+    - name: Install nginx
+      apt:
+        name: ['nginx','php8.3','php8.3-fpm','mariadb-server']
+        state: present
+
+    - name: Start and enable nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Start and enable PHP-FPM
+      service:
+        name: php8.3-fpm
+        state: started
+        enabled: yes
+
+    - name: Start and enable MariaDB
+      service:
+        name: mariadb
+        state: started
+        enabled: yes
