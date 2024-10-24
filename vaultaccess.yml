@@ -1,0 +1,36 @@
+- name: Using secret
+  hosts: localhost
+  connection: local
+  become: true
+  vars_files:
+    - mysecret.yml # Your secret file name
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+
+  tasks:
+    - name: Install MariaDB
+      apt:
+        name: mariadb-server
+        state: present
+      become: true
+      tags: mariadb
+
+    - name: Start MariaDB
+      service:
+        name: mariadb
+        state: started
+      become: true
+      tags: mariadb
+
+    - name: Ensure root user has a specific password
+      mysql_user:
+        login_host: localhost
+        login_password: "{{ password }}"
+        login_user: "{{ username }}"
+        name:  # Your Username
+        password: " " # Your Password
+        login_unix_socket: /var/run/mysqld/mysqld.sock
+        check_implicit_admin: yes
+        update_password: always
+        state: present
+
