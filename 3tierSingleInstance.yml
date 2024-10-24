@@ -1,0 +1,19 @@
+- name: threetier
+  hosts: all
+  become: true
+  tasks:
+    - name: install nginx
+      apt: name=nginx state=present
+      when: inventory_hostname in groups ['webtier']
+ 
+    - name: install php8.3
+      apt: name=php8.3 state=present
+      when: inventory_hostname in groups ['apptier']
+ 
+    - name: install php8.3-fpm
+      apt: name=php8.3-fpm state=present
+      when: inventory_hostname in groups ['apptier']
+ 
+    - name: install database
+      apt: name=mariadb-server state=present
+      when: inventory_hostname in groups ['dbtier']
