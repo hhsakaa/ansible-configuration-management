@@ -22,4 +22,4 @@ Before using these configuration files, make sure you have the following:
   
   ```bash
   git clone https://github.com/hhsakaa/ansible-configuration-management
-  cd ansible-configuration-management
+  cd ansible-configuration-management 
