@@ -1,4 +1,4 @@
-# Ansible Configuration Files 
+# Ansible Configuration Files
 
 This repository contains a collection of Ansible configuration YAML files designed for specific use cases. These configuration files are meant for educational purposes and to serve as templates or examples for automating infrastructure tasks using Ansible.
 
